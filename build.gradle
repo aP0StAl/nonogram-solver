@@ -1,0 +1,36 @@
+buildscript {
+	ext {
+		springBootVersion = '2.1.1.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.apostal'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile files('.\\opencv\\opencv-345.jar')
+	implementation('org.springframework.boot:spring-boot-starter')
+	compileOnly('org.projectlombok:lombok')
+	compile files('TableLayout-20050920.jar')
+	compile group: 'org.deeplearning4j', name: 'deeplearning4j-core', version: '0.9.1'
+	compile group: 'org.nd4j', name: 'nd4j-native-platform', version: '0.9.1'
+	compile group: 'org.deeplearning4j',name: 'deeplearning4j-ui_2.10', version: '0.9.1'
+	compile('net.coobird:thumbnailator:[0.4, 0.5)')
+	testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
